@@ -1,0 +1,55 @@
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>news</title>
+          <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css' rel='stylesheet'>
+        </head>
+        <body>
+          <nav class="navbar navbar-dark bg-dark">
+          <a href="#" class="navbar-brand mx-auto">NEWS</a>
+          </nav>
+
+
+          <div class="container">
+          <div class="row">
+            <div class="col-md-6 mt-4 text-center">
+              <table class="table table-striped">
+                <tr>
+                  <th>ID</th>
+                  <th>TITLE</th>
+                  <th>NEWS</th>
+                  <th>DATE</th>
+                </tr>
+                <% for(var i = 0; i < news.length; i++) { %>
+                  <tr>
+                    <td><%= news[i].id_news %></td>
+                    <td><%= news[i].title %></td>
+                    <td><%= news[i].news %></td>
+                    <td><%= news[i].data_created %></td>
+                  </tr>
+               <% } %>
+              </table>
+
+            </div>
+            <div class="col-md-6 mt-4 card">
+              <form action="/news" method="post" class="card-body">
+                <h3 class="card-title">add news</h3>
+                <div class="form-group">
+                  <input id="tit" type="text" name="title" class="form-control"
+                  placeholder="title">
+                </div>
+                <div class="form-group">
+                  <input type="text" name="news" class="form-control"
+                  placeholder="content">
+                </div>
+                <input type="submit" class="btn btn-primary">
+              </form>
+            </div>
+          </div>
+          </div>
+          <script>
+          document.getElementById('tit').focus()
+          </script>
+        </body>
+      </html>
