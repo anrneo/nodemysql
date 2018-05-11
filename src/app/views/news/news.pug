@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css' rel='stylesheet')
+        title mysql nodejs
+    body
+        nav(class="navbar navbar-dark bg-dark")
+            a(href="#" class="navbar-brand mx-auto") NEWS
+        div(class="container")
+            div(class="row")
+                div(class="col-md-8 mt-4 text-center")
+                    table(class="table table-striped")
+                        tr
+                            th id
+                            th TITLE
+                            th NEWS
+                            th DATE
+                            th UPDATE
+                            th DELETE
+                        for dat in news
+                            tr
+                                td(id='id')=dat.id
+                                td=dat.title
+                                td=dat.news
+                                td=dat.date
+                                td
+                                    button(value=dat.id id='up') update
+                                td
+                                    a(href='/delete/'+dat.id) delete
+                div(class="col-md-4 mt-4 card")
+                    form(action="/news" method="post" class="card-body" id='form_news')
+                        h3(class="card-title") add news
+                        div(class="form-group")
+                            input(id="title" type="text" name="title" class="form-control" autofocus
+                                placeholder="title")
+                        div(class="form-group")
+                            input(type="text" name="news" class="form-control"
+                                placeholder="content" id='news')
+                        input(type="submit" class="btn btn-primary" id='enviar')
+                        input(type="submit" class="btn btn-primary" id='update' value='update' style='display:none')
+        script
+            include jquery.js
+            include script.js
+
